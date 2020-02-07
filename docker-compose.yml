@@ -1,0 +1,22 @@
+version: "3"
+services:
+    frontend:
+        container_name: reapp
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        image: panurutch/reapp
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client:/usr/src/app
+    backend:
+        container_name: nodeapi
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        image: panurutch/nodeapi
+        ports:
+            - "9000:9000"
+        volumes:
+            - ./server:/usr/src/app
